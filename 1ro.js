@@ -560,3 +560,233 @@ function eliminarPeso(obj) {
 }
 
 eliminarPeso({ nombre: "María", peso: 78 });
+
+//Ejercicio 47: existe la llave
+
+function existeLlave(obj, str) {
+  if (obj.hasOwnProperty(str)) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+existeLlave({ name: "María", age: 23 }, "age");
+
+// ------------------------------------------------------------ solucion MIR ---------------------------------------------------------------
+
+function existeLlave(obj, key) {
+  return obj.hasOwnProperty(key);
+}
+
+//Ejercicio 48: buscando el prodcuto
+
+function buscarProducto(objs, num) {
+  for (i = 0; i < objs.length; i++) {
+    if (objs[i].hasOwnProperty("id")) {
+      if (objs[i].id === num) {
+        return objs[i];
+      }
+    }
+  }
+  return null;
+}
+
+buscarProducto(
+  [
+    { id: 1, nombre: "A" },
+    { id: 2, nombre: "B" },
+  ],
+  1
+);
+
+//Ejercicio 49: decifra la frase
+
+function descifrar(str, obj) {
+  var string = "";
+
+  for (i = 0; i < str.length; i++) {
+    if (obj.hasOwnProperty(str[i])) {
+      string += obj[str[i]];
+    } else {
+      string += str[i];
+    }
+  }
+
+  return string;
+}
+
+descifrar("pyrmizo", { y: "e", z: "s" });
+
+// ------------------------------------------------------------- otra solucion - MIR -------------------------------------------------------
+
+function decifrar(string, obj) {
+  var chars = string.split("");
+
+  for (var i = 0; i < chars.length; i++) {
+    var char = chars[i];
+    if (obj.hasOwnProperty(char)) {
+      chars[i] = obj[char];
+    }
+  }
+
+  return chars.join("");
+}
+
+// -------------------------------------------------------------- ESTA SECCION ES DE EJERCICIOS DE DIFERENTES LADOS-----------------------------
+
+//Ejercicio extra 1:
+
+var NoS = prompt(
+  "Quieres jugar piedra, papel o tijera contra el CPU? Responde 'si' o 'no'"
+);
+
+while (NoS.toLocaleLowerCase() === "si") {
+  var info = prompt("Piedra, papel o tijera?");
+
+  var ppt = (user) => {
+    let arr = ["piedra", "papel", "tijera"];
+    let oper = arr[Math.floor(Math.random() * 3)];
+
+    switch (user !== oper) {
+      case (user = "piedra") === (oper = "tijeras") ||
+        (user = "papel") === (oper = "piedra") ||
+        (user = "tijera") === (oper = "papel"):
+        return alert("ganaste!");
+      case user === oper:
+        return alert("Empate!!");
+
+      default:
+        return alert("perdiste :c");
+    }
+  };
+
+  ppt(info);
+
+  NoS = prompt("Quieres seguir jugando?");
+
+  if (NoS.toLocaleLowerCase() === "si") {
+    alert("Juguemos Otra vez!");
+  }
+}
+alert("Fin");
+//Platzi
+
+let nombre = "Juan";
+let apellido = "Ramirez";
+let nombreUsuarioPlatzi = "JuanR22";
+let edad = 22;
+let correoElectronico = "JuanR22@gmail.com";
+let mayorEdad = true;
+let DineroAhorrado = 3000;
+let deudas = 500;
+
+let nombreCompleto = `${nombre + apellido}`;
+let dineroReal = DineroAhorrado - deudas;
+
+//Platzi:funciones
+
+var presentation = (name, lastname, nickname) => {
+  const completename = name + lastname;
+  return `Hola mi nombre es ${completename} , pero prefiero que me digas ${nickname}.`;
+};
+
+presentation("Juan Fernando ", "Quintero Galán", "Fercho");
+
+//Platzi: Condicionales
+
+const tipoDeSuscripcion = "Basic";
+
+if (tipoDeSuscripcion === "Basic") {
+  console.log("Puedes tomar casi todos los cursos de Platzi durante un mes");
+}
+if (tipoDeSuscripcion === "Free") {
+  console.log("Solo puedes tomar los cursos gratis");
+}
+if (tipoDeSuscripcion === "Expert") {
+  console.log("Puedes tomar casi todos los cursos de Platzi durante un año");
+}
+if (tipoDeSuscripcion === "ExpertPlus") {
+  console.log(
+    "Tú y alguien más pueden tomar TODOS los cursos de Platzi durante un año"
+  );
+}
+
+//Reto Condicionales
+
+const cualEs = prompt("Cual es tu plan de Platzi?");
+
+var reto = (tipoPlan) => {
+  let planes = [
+    { Basic: "Puedes tomar casi todos los cursos de Platzi durante un mes" },
+    { Free: "Solo puedes tomar los cursos gratis" },
+    { Expert: "Puedes tomar casi todos los cursos de Platzi durante un año" },
+    {
+      ExpertPlus:
+        "Tú y alguien más pueden tomar TODOS los cursos de Platzi durante un año",
+    },
+  ];
+
+  for (i = 0; i < planes.length; i++) {
+    let planesind = planes[i];
+    if (planesind.hasOwnProperty(tipoPlan)) {
+      return alert(planesind[tipoPlan]);
+    }
+  }
+};
+
+reto(cualEs.charAt(0).toUpperCase() + cualEs.slice(1));
+
+//Platzi Ciclos
+let i = 0;
+while (i < 5) {
+  console.log("El valor de i es: " + i);
+  i++;
+}
+
+// -----
+let i = 10;
+
+while (i >= 2) {
+  console.log("El valor de i es: " + i);
+  i--;
+}
+
+// ----------
+
+let sum = prompt("Cuanto es 2 + 2");
+
+while (sum != 4) {
+  sum = prompt("Intenta de nuevo");
+}
+alert("Felicidades!");
+
+// Platzi Arrays
+
+arr = (array) => array[0];
+
+arr([1, 2, 3, 4, 5]);
+
+// ---
+
+arr = (array) => {
+  array.forEach((element) => {
+    console.log(element);
+  });
+};
+
+arr([1, 2, 3, 4, 5]);
+
+// ---
+let persona = {
+  nombre: "Oscar",
+  apellido: "Aguilar",
+  edad: 21,
+};
+const unaFuncion = (objeto) => {
+  Object.values(objeto).forEach((elem) => {
+    console.log(elem);
+  });
+};
+
+unaFuncion(persona);
