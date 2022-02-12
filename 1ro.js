@@ -790,3 +790,119 @@ const unaFuncion = (objeto) => {
 };
 
 unaFuncion(persona);
+
+//Ejercicios Youtube
+
+//1
+
+mayomen = (num1, num2) => {
+  if (num1 === num2) {
+    return "ambos numeros son iguales";
+  }
+
+  switch (num1 !== num2) {
+    case num1 > num2:
+      return `${num1} es el numero mayor y ${num2} es el numero menor`;
+    case num1 < num2:
+      return `${num2} es el numero mayor y ${num1} es el numero menor`;
+  }
+};
+
+mayomen(7, 5);
+
+//2
+
+var info = prompt("ingresa tu primer valor");
+var info2 = prompt("ingresa tu segundo valor");
+
+while (isNaN(info) || isNaN(info2) || info <= 0 || info2 <= 0) {
+  if (isNaN(info) || info <= 0) {
+    info = prompt("Reingresa tu primer valor");
+  } else {
+    info2 = prompt("Reingresa tu segundo valor");
+  }
+}
+
+mayomen = (num1, num2) => {
+  if (num1 === num2) {
+    return "ambos numeros son iguales";
+  }
+
+  switch (num1 !== num2) {
+    case num1 > num2:
+      return `${num1} es el numero mayor y ${num2} es el numero menor`;
+    case num1 < num2:
+      return `${num2} es el numero mayor y ${num1} es el numero menor`;
+  }
+};
+
+mayomen(info, info2);
+
+//3
+let num = parseInt(prompt("Ingresa un numero"));
+let arrnums = [];
+
+while (num >= 0) {
+  arrnums.push(num);
+  num = parseInt(prompt("Ingresa otro numero"));
+}
+
+let oper = 0;
+let oper2 = 0;
+
+for (i = 0; i < arrnums.length; i++) {
+  oper += arrnums[i];
+  oper2 += arrnums[i] / arrnums.length;
+  console.log(oper, oper2);
+}
+
+alert(
+  `la suma de tus numeros da ${oper} y la media de tus numeros es ${oper2}`
+);
+
+//4
+
+entreDos = (num1, num2) => {
+  while (num1 !== num2 - 1) {
+    num1++;
+    console.log(num1);
+  }
+};
+
+entreDos(2, 4);
+
+//5
+
+entreDosIm = (num1, num2) => {
+  while (num1 !== num2 - 1) {
+    if (num1 % 2 !== 0) {
+      num1 += 2;
+      console.log(num1);
+    } else {
+      num1++;
+      console.log(num1);
+      num1 += 2;
+      console.log(num1);
+    }
+  }
+};
+
+entreDosIm(1, 10);
+
+//6
+
+let info = prompt("Please, insert a number");
+
+divisores = (num) => {
+  let numdiv = [];
+
+  for (i = 1; i <= num; i++) {
+    if (num % i === 0) {
+      numdiv.push(i);
+    }
+  }
+
+  return alert(`the dividing numbers are ${numdiv}`);
+};
+
+divisores(info);
